@@ -3,15 +3,27 @@ import './App.css';
 import movieData from './components/movie-data.js';
 import MovieList from './components/MovieList.jsx';
 
-function addToFavorites(movie) {
-  alert(movie.title);
-}
+
 
 function App() {
   const dataCopy = movieData;
 
+  const [favorites, setFavorites] = useState([]);
+
+  function addToFavorites(movie) {
+  if(favorites.some(e => e.id === movie.id)) {
+    setFavorites(favorites.filter(e => e.id === movie.id));
+  } else {
+    setFavorites([...favorites, movie]);
+  }
+  alert(movie.name);
+}
+
   return (
-    <MovieList movieData={dataCopy} handler={addToFavorites}/>
+    <div>
+      <Header favorites={favorites} />
+      <MovieList movieData={dataCopy} handler={addToFavorites}/>
+    </div>
   )
 }
 

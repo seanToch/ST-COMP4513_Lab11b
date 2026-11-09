@@ -1,5 +1,4 @@
-
-
+//Single Movie List Item
 const SingleMovie = (props) => {
 
     return(
