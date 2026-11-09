@@ -1,11 +1,13 @@
-import FavoriteList from './FavoriteList';
+import FavoriteList from './FavoriteList.jsx';
 
 const Header = (props) => {
     return(
         <section className="favorites">
         
-            <FavoriteList favorites={favorites} />
+            <FavoriteList favorites={props.favorites} />
 
         </section>
     )
 }
+
+export default Header;
